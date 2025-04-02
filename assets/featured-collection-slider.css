@@ -195,3 +195,17 @@
 .feat-coll-carousel .flickity-page-dots li.is-selected {
   background: #8FF695;
 }
+
+@media all and (min-width: 1025px) {
+  .feat-coll-carousel .flickity-page-dots li {
+    transition: all .3s ease-in-out;
+  }
+  
+  .feat-coll-carousel .flickity-page-dots li:hover {
+    background: #b6b6b6;
+  }
+
+  .feat-coll-carousel .flickity-page-dots li.is-selected:hover {
+    background: #46c74d;
+  }
+}
