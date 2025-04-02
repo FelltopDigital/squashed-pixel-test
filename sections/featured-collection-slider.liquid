@@ -4,11 +4,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+{% assign ss = section.settings %}
+
 <div class="feat-coll">
   <div class="feat-coll-container">
     <div class="feat-coll-header">
-      <h2>Tom</h2>
-      <a href="View All"></a>
+      {% if ss.title %}
+        <h2>{{ ss.title }}</h2>
+      {% endif %}
+      <h2></h2>
+      <a href="#">View All</a>
     </div>
   </div>
 </div>
