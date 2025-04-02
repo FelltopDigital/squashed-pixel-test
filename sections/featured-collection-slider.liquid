@@ -22,10 +22,10 @@
 
   <div class="feat-coll-carousel">
 
-      {{ ss.collection | json }}
+      {{ ss.chosen_collection | json }}
 
-    {% if ss.collection != blank %}
-      {% for product in ss.collection.products %}
+    {% if ss.chosen_collection != blank %}
+      {% for product in ss.chosen_collection.products %}
         <div class="carousel-cell">
           <div class="carousel-cell-image">
             <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
