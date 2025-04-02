@@ -84,7 +84,7 @@
 }
 
 .feat-coll .feat-coll-carousel .carousel-cell:first-of-type {
-  margin: 30px 10px 17px 10px;
+  margin: 30px 10px 10px 17px;
 }
 
 @media all and (min-width: 768px) {
