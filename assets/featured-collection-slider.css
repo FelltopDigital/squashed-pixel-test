@@ -1,0 +1,7 @@
+.feat-coll-container {
+  width: 100%;
+  display: block;
+  max-width: 1244px;
+  margin: 0 auto;
+  position: relative;
+}
