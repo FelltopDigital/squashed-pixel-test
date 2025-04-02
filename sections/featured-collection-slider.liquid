@@ -36,7 +36,10 @@
           <div class="carousel-cell-flavour">
             <p>Variant: {{ product.variants.first.title }}</p>
           </div>
-          <button class="carousel-cell-cta">
+          <button
+            class="carousel-cell-cta"
+            data-variant-id="{{ product.variants.first.id }}"
+          >
             Add to cart
           </button>
         </div>
