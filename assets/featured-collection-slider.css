@@ -91,7 +91,7 @@
   background: #c1c1c1;
 }
 
-.feat-coll .feat-coll-carousel .carousel-cell .carousel-cell-title {
+.feat-coll .feat-coll-carousel .carousel-cell .carousel-cell-title h3 {
   margin: 15px 0 5px 0;
   font-family: Futura;
   font-weight: 500;
@@ -101,7 +101,7 @@
   color: #000000;
 }
 
-.feat-coll .feat-coll-carousel .carousel-cell .carousel-cell-description {
+.feat-coll .feat-coll-carousel .carousel-cell .carousel-cell-description p {
   font-family: Roboto;
   font-weight: 300;
   font-size: 14px;
@@ -111,7 +111,7 @@
   margin: 0 0 26px 0;
 }
 
-.feat-coll .feat-coll-carousel .carousel-cell .carousel-cell-flavour {
+.feat-coll .feat-coll-carousel .carousel-cell .carousel-cell-flavour p {
   font-family: Roboto;
   font-weight: 500;
   font-size: 12px;
