@@ -173,6 +173,12 @@
   border-bottom-left-radius: 10px;
 }
 
+@media all and (min-width: 1025px) {
+  .feat-coll .feat-coll-carousel .carousel-cell .carousel-cell-cta {
+    cursor: pointer;
+  }
+}
+
 .feat-coll-carousel .flickity-page-dots li {
   opacity: 1;
   width: 14px;
