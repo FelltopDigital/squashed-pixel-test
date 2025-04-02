@@ -22,6 +22,8 @@
 
   <div class="feat-coll-carousel">
 
+      {{ ss.collection | json }}
+
     {% if ss.collection != blank %}
       {% for product in ss.collection.products %}
         <div class="carousel-cell">
