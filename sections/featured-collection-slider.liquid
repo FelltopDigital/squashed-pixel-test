@@ -1,9 +1,6 @@
 {{ 'flickity.css' | asset_url | stylesheet_tag }}
 {{ 'flickity.min.js' | asset_url | script_tag }}
 {{ 'featured-collection-slider.css' | asset_url | stylesheet_tag }}
-{{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
-
-<script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,13 +36,9 @@
           <div class="carousel-cell-flavour">
             <p>Variant: {{ product.variants.first.title }}</p>
           </div>
-          <form method="post" action="/cart/add" class="product-form">
-            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-            <input type="hidden" name="quantity" value="1">
-            <button type="submit" class="carousel-cell-cta" data-product-id="{{ product.id }}">
-              Add to cart
-            </button>
-          </form>
+          <button class="carousel-cell-cta">
+            Add to cart
+          </button>
         </div>
       {% endfor %}
     {% endif %}
@@ -69,8 +62,6 @@
   </div>
 </div>
 
-{% render 'cart-drawer' %}
-
 <script>
   var elem = document.querySelector('.feat-coll-carousel');
   var flkty = new Flickity( elem, {
@@ -79,44 +70,6 @@
     prevNextButtons: false,
     groupCells: window.innerWidth > 768 ? 2 : 1,
     cellAlign: window.innerWidth > 768 ? 'center' : 'left',
-  });
-
-  // Handle Add to Cart form submissions
-  document.querySelectorAll('.product-form').forEach(form => {
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-
-      const formData = new FormData(form);
-      
-      // Add product to cart
-      const addResponse = await fetch('/cart/add.js', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'X-Requested-With': 'XMLHttpRequest',
-        }
-      });
-
-      if (!addResponse.ok) {
-        console.error('Failed to add product to cart');
-        return;
-      }
-
-      // Fetch updated cart
-      const cartResponse = await fetch('/cart.js');
-      const cartData = await cartResponse.json();
-
-      // Update the cart drawer content
-      const cartDrawer = document.querySelector('cart-drawer');
-      if (cartDrawer && typeof cartDrawer.renderContents === 'function') {
-        cartDrawer.renderContents(cartData); // <-- assumes your cart drawer has this method
-      }
-
-      // Open the cart drawer
-      if (cartDrawer && typeof cartDrawer.open === 'function') {
-        cartDrawer.open();
-      }
-    });
   });
 </script>
 
