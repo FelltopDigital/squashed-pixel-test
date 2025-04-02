@@ -64,20 +64,23 @@
 
 <script>
   var elem = document.querySelector('.feat-coll-carousel');
-
-  var options = {
+  var flkty = new Flickity(elem, {
     contain: true,
     wrapAround: true,
     prevNextButtons: false,
     groupCells: window.innerWidth > 768 ? 2 : 1,
     cellAlign: window.innerWidth > 768 ? 'center' : 'left',
-  }
-  
-  var flkty = new Flickity(elem, {options});
+  });
 
   window.addEventListener('resize', function() {
     flkty.destroy();
-    flkty = new Flickity(elem, {options});
+    flkty = new Flickity(elem, {
+      contain: true,
+      wrapAround: true,
+      prevNextButtons: false,
+      groupCells: window.innerWidth > 768 ? 2 : 1,
+      cellAlign: window.innerWidth > 768 ? 'center' : 'left',
+    });
   });
 </script>
 
