@@ -37,7 +37,8 @@
         "slide_jDria8"
       ],
       "settings": {
-        "title": "The Donut Range"
+        "title": "The Donut Range",
+        "chosen_collection": "donuts"
       }
     }
   },
