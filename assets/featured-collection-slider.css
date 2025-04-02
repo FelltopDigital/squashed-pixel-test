@@ -23,3 +23,13 @@
   letter-spacing: 0%;
   font-family: Roboto;
 }
+
+.feat-coll .feat-coll-header a {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-decoration: underline;
+}
