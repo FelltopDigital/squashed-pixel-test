@@ -139,3 +139,10 @@
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 }
+
+.feat-coll-carousel .flickity-page-dots li {
+  width: 14px;
+  height: 14px;
+  margin: 0 4px;
+  background: #EBEBEB;
+}
