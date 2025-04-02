@@ -16,7 +16,13 @@
   position: relative;
 }
 
-.feat-coll h2 {
+.feat-coll .feat-coll-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.feat-coll .feat-coll-header h2 {
   font-size: 48px;
   font-weight: 500;
   line-height: 100%;
