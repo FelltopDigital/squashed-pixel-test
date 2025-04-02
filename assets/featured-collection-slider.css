@@ -75,12 +75,18 @@
 }
 
 .feat-coll .feat-coll-carousel .carousel-cell {
+  width: 90%;
   padding: 14px 18px;
   margin: 30px 10px;
   border-radius: 20px;
-  width: 300px;
   background-color: #ffffff;
   box-shadow: 0px 4px 20px 0px #0000001A;
+}
+
+@media all and (min-width: 768px) {
+  .feat-coll .feat-coll-carousel .carousel-cell {
+    width: 300px;
+  }
 }
 
 .feat-coll .feat-coll-carousel .carousel-cell .carousel-cell-image {
