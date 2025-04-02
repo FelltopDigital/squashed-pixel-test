@@ -141,6 +141,7 @@
 }
 
 .feat-coll-carousel .flickity-page-dots li {
+  opacity: 1;
   width: 14px;
   height: 14px;
   margin: 0 4px;
