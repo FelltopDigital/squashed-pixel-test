@@ -91,7 +91,7 @@
   left: 17px !important;
 }
 
-@media all and (min-width: 639px) {
+@media all and (min-width: 641px) {
   .feat-coll .flickity-slider {
     left: 0 !important;
   }
