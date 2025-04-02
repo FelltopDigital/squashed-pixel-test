@@ -188,12 +188,11 @@
 <script>
   var elem = document.querySelector('.feat-coll-carousel');
   var flkty = new Flickity( elem, {
-    cellAlign: 'left',
     contain: true,
     wrapAround: true,
     prevNextButtons: false,
-    cellAlign: 'center',
     groupCells: window.innerWidth > 768 ? 2 : 1,
+    cellAlign: window.innerWidth > 768 ? 'center' : 'left',
   });
 </script>
 
