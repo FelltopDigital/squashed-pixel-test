@@ -23,7 +23,7 @@
 
 .feat-coll .feat-coll-header {
   display: flex;
-  flex-direction: col;
+  flex-direction: column;
   align-items: center;
 }
 
