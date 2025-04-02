@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .feat-coll {
   padding: 75px 0;
 }
@@ -14,6 +18,7 @@
   max-width: 1244px;
   margin: 0 auto;
   position: relative;
+  padding: 0 17px;
 }
 
 .feat-coll .feat-coll-header {
