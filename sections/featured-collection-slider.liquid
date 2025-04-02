@@ -85,18 +85,36 @@
   document.querySelectorAll('.product-form').forEach(form => {
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      
+
       const formData = new FormData(form);
-      const response = await fetch('/cart/add.js', {
-        method: 'POST',
-        body: formData
-      });
       
-      if (response.ok) {
-        const cartDrawer = document.querySelector('cart-drawer');
-        if (cartDrawer) {
-          cartDrawer.open();
+      // Add product to cart
+      const addResponse = await fetch('/cart/add.js', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
         }
+      });
+
+      if (!addResponse.ok) {
+        console.error('Failed to add product to cart');
+        return;
+      }
+
+      // Fetch updated cart
+      const cartResponse = await fetch('/cart.js');
+      const cartData = await cartResponse.json();
+
+      // Update the cart drawer content
+      const cartDrawer = document.querySelector('cart-drawer');
+      if (cartDrawer && typeof cartDrawer.renderContents === 'function') {
+        cartDrawer.renderContents(cartData); // <-- assumes your cart drawer has this method
+      }
+
+      // Open the cart drawer
+      if (cartDrawer && typeof cartDrawer.open === 'function') {
+        cartDrawer.open();
       }
     });
   });
