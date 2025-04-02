@@ -114,3 +114,19 @@
   line-height: 100%;
   letter-spacing: 0%;   
 }
+
+.feat-coll .feat-coll-carousel .carousel-cell .carousel-cell-cta {
+  display: block;
+  appearance: none;
+  outline: none;
+  border: none;
+  background-color: #8FF695;
+  text-align: center;
+  padding: 12px;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #000000;
+}
