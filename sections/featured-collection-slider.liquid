@@ -85,6 +85,44 @@
       cellAlign: window.innerWidth > 640 ? 'center' : 'left',
     });
   });
+
+  const cartDrawer = document.querySelector('cart-drawer');
+  const addToCartButtons = document.querySelectorAll('.carousel-cell-cta');
+
+  addToCartButtons.forEach(button => {
+    button.addEventListener('click', async () => {
+      const variantId = button.getAttribute('data-variant-id');
+
+      const response = await fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
+        },
+        body: JSON.stringify({
+          id: variantId,
+          quantity: 1
+        })
+      });
+
+      if (response.ok) {
+        // Fetch updated cart contents and dispatch update event
+        const cartResponse = await fetch('/cart.js');
+        const cartData = await cartResponse.json();
+
+        document.dispatchEvent(new CustomEvent('cart:refresh', {
+          detail: { cart: cartData }
+        }));
+
+        // Open the cart drawer
+        if (cartDrawer && typeof cartDrawer.open === 'function') {
+          cartDrawer.open();
+        }
+      } else {
+        console.error('Failed to add to cart.');
+      }
+    });
+  });  
 </script>
 
 {% schema %}
