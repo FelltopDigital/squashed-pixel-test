@@ -95,12 +95,12 @@
       if (response.ok) {
         const cartDrawer = document.querySelector('cart-drawer');
         if (cartDrawer) {
-          // Fetch the updated cart data
+          // Get the cart data
           const cartResponse = await fetch('/cart.js');
           const cartData = await cartResponse.json();
           
           // Update the cart drawer with new data
-          cartDrawer.renderContents({
+          const parsedState = {
             sections: {
               'cart-drawer': {
                 'cart-drawer': {
@@ -111,10 +111,19 @@
               }
             },
             sections_order: ['cart-drawer']
-          });
+          };
+          
+          // Update the cart drawer contents
+          cartDrawer.renderContents(parsedState);
           
           // Open the cart drawer
           cartDrawer.open();
+          
+          // Trigger a cart update event
+          document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {
+            bubbles: true,
+            detail: { cart: cartData }
+          }));
         }
       }
     });
