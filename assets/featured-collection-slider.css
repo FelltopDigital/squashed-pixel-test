@@ -24,12 +24,13 @@
 .feat-coll .feat-coll-header {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 @media all and (min-width: 1025px) {
   .feat-coll .feat-coll-header {
     flex-direction: row;
+    align-items: flex-start;
     justify-content: space-between;
   }
 }
