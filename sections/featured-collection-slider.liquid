@@ -22,8 +22,6 @@
 
   <div class="feat-coll-carousel">
 
-      {{ ss.chosen_collection | json }}
-
     {% if ss.chosen_collection != blank %}
       {% for product in ss.chosen_collection.products %}
         <div class="carousel-cell">
@@ -37,7 +35,7 @@
             <p>{{ product.description }}</p>
           </div>
           <div class="carousel-cell-flavour">
-            <p>Flavour: {{ product.options[0].values[0].name }}</p>
+            <p>Flavour: {{ product.options | map: 'values' | map: 'name' | join: ', ' }}</p>
           </div>
           <button class="carousel-cell-cta">
             Add to cart
