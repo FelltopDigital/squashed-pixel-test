@@ -113,6 +113,15 @@
   background: #c1c1c1;
 }
 
+.feat-coll .feat-coll-carousel .carousel-cell .carousel-cell-image img {
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  object-fit: cover;
+}
+
 .feat-coll .feat-coll-carousel .carousel-cell .carousel-cell-title h3 {
   margin: 20px 0 12px 0;
   font-family: Futura;
