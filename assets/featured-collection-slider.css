@@ -1,3 +1,13 @@
+.feat-coll {
+  padding: 75px 0;
+}
+
+@media all and (min-width: 1025px) {
+  .feat-coll {
+    padding: 152px 0;
+  }
+}
+
 .feat-coll-container {
   width: 100%;
   display: block;
