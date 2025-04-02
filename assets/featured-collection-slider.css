@@ -98,6 +98,7 @@
   font-size: 24px;
   line-height: 100%;
   letter-spacing: 0%;
+  color: #000000;
 }
 
 .feat-coll .feat-coll-carousel .carousel-cell .carousel-cell-description {
@@ -116,6 +117,8 @@
   font-size: 12px;
   line-height: 100%;
   letter-spacing: 0%;   
+  margin: 0 0 14px 0;
+  color: #000000;
 }
 
 .feat-coll .feat-coll-carousel .carousel-cell .carousel-cell-cta {
