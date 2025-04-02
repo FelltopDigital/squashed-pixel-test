@@ -70,8 +70,9 @@
   }
 }
 
-.feat-coll .feat-coll-carousel .flickity-slider {
-  /* padding: 100px 0; */
+/* .feat-coll .feat-coll-carousel .flickity-slider { */
+.feat-coll .feat-coll-carousel .flickity-viewport {
+  padding: 100px 0;
 }
 
 .feat-coll .feat-coll-carousel .carousel-cell {
