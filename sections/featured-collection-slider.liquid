@@ -93,6 +93,7 @@
     button.addEventListener('click', async () => {
       const variantId = button.getAttribute('data-variant-id');
 
+      // Add to cart via AJAX
       const response = await fetch('/cart/add.js', {
         method: 'POST',
         headers: {
@@ -106,23 +107,32 @@
       });
 
       if (response.ok) {
-        // Fetch updated cart contents and dispatch update event
-        const cartResponse = await fetch('/cart.js');
-        const cartData = await cartResponse.json();
+        // Now re-fetch the cart drawer contents as HTML
+        const sectionsResponse = await fetch('/?sections=main-cart-drawer');
+        const sections = await sectionsResponse.json();
 
-        document.dispatchEvent(new CustomEvent('cart:refresh', {
-          detail: { cart: cartData }
-        }));
+        // Replace cart drawer content with the updated one
+        const drawerContainer = document.querySelector('cart-drawer');
+        if (drawerContainer) {
+          drawerContainer.innerHTML = sections['main-cart-drawer'];
+          drawerContainer.classList.add('animate', 'is-open');
+          document.body.classList.add('overflow-hidden');
+        }
 
-        // Open the cart drawer
-        if (cartDrawer && typeof cartDrawer.open === 'function') {
-          cartDrawer.open();
+        // Update cart icon count
+        const cartIconBubble = document.querySelector('[data-cart-count-bubble]');
+        const cartData = await fetch('/cart.js').then(res => res.json());
+
+        if (cartIconBubble) {
+          const count = cartData.item_count;
+          cartIconBubble.textContent = count;
+          cartIconBubble.classList.toggle('hidden', count === 0);
         }
       } else {
-        console.error('Failed to add to cart.');
+        console.error('Failed to add to cart');
       }
     });
-  });  
+  });
 </script>
 
 {% schema %}
