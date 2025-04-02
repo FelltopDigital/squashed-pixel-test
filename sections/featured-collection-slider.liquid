@@ -39,9 +39,13 @@
           <div class="carousel-cell-flavour">
             <p>Variant: {{ product.variants.first.title }}</p>
           </div>
-          <button class="carousel-cell-cta">
-            Add to cart
-          </button>
+          <form method="post" action="/cart/add" class="product-form">
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit" class="carousel-cell-cta" data-product-id="{{ product.id }}">
+              Add to cart
+            </button>
+          </form>
         </div>
       {% endfor %}
     {% endif %}
@@ -65,6 +69,8 @@
   </div>
 </div>
 
+{% render 'cart-drawer' %}
+
 <script>
   var elem = document.querySelector('.feat-coll-carousel');
   var flkty = new Flickity( elem, {
@@ -73,6 +79,45 @@
     prevNextButtons: false,
     groupCells: window.innerWidth > 768 ? 2 : 1,
     cellAlign: window.innerWidth > 768 ? 'center' : 'left',
+  });
+
+  // Handle Add to Cart form submissions
+  document.querySelectorAll('.product-form').forEach(form => {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      
+      const formData = new FormData(form);
+      const response = await fetch('/cart/add.js', {
+        method: 'POST',
+        body: formData
+      });
+      
+      if (response.ok) {
+        const cartDrawer = document.querySelector('cart-drawer');
+        if (cartDrawer) {
+          // Fetch the updated cart data
+          const cartResponse = await fetch('/cart.js');
+          const cartData = await cartResponse.json();
+          
+          // Update the cart drawer with new data
+          cartDrawer.renderContents({
+            sections: {
+              'cart-drawer': {
+                'cart-drawer': {
+                  items: cartData.items,
+                  item_count: cartData.item_count,
+                  total_price: cartData.total_price
+                }
+              }
+            },
+            sections_order: ['cart-drawer']
+          });
+          
+          // Open the cart drawer
+          cartDrawer.open();
+        }
+      }
+    });
   });
 </script>
 
