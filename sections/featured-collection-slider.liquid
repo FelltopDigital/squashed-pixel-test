@@ -35,7 +35,7 @@
             <p>{{ product.description }}</p>
           </div>
           <div class="carousel-cell-flavour">
-            <p>Flavour: {{ product.options | map: 'values' | map: 'name' | join: ', ' }}</p>
+            <p>Variant: {{ product.variants.first.title }}</p>
           </div>
           <button class="carousel-cell-cta">
             Add to cart
