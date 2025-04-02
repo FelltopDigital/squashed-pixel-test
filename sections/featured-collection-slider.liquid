@@ -28,9 +28,11 @@
 </div>
 
 <script>
-  $('.feat-coll-carousel').flickity({
+  var elem = document.querySelector('.feat-coll-carousel');
+  var flkty = new Flickity( elem, {
+    // options
     cellAlign: 'left',
-    contain: true,
+    contain: true
   });
 </script>
 
