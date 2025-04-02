@@ -146,3 +146,7 @@
   margin: 0 4px;
   background: #EBEBEB;
 }
+
+.feat-coll-carousel .flickity-page-dots li.is-selected {
+  background: #8FF695;
+}
