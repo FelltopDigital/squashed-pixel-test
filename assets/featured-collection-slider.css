@@ -72,13 +72,13 @@
 
 /* .feat-coll .feat-coll-carousel .flickity-slider { */
 .feat-coll .feat-coll-carousel .flickity-viewport {
-  padding: 100px 0;
+  /* padding: 100px 0; */
 }
 
 .feat-coll .feat-coll-carousel .carousel-cell {
   width: 50%;
   padding: 50px;
-  margin: 0 20px;
+  margin: 20px;
   border-radius: 20px;
   background-color: #ffffff;
   box-shadow: 0px 4px 20px 0px #0000001A;
