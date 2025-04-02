@@ -23,8 +23,15 @@
 
 .feat-coll .feat-coll-header {
   display: flex;
+  flex-direction: col;
   align-items: center;
-  justify-content: space-between;
+}
+
+@media all and (min-width: 1025px) {
+  .feat-coll .feat-coll-header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .feat-coll .feat-coll-header h2 {
