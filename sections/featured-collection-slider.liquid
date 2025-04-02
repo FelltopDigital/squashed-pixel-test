@@ -21,8 +21,30 @@
   </div>
 
   <div class="feat-coll-carousel">
+
+    {% if ss.collection != blank %}
+      {% for product in ss.collection.products %}
+        <div class="carousel-cell">
+          <div class="carousel-cell-image">
+            <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+          </div>
+          <div class="carousel-cell-title">
+            <h3>{{ product.title }}</h3>
+          </div>
+          <div class="carousel-cell-description">
+            <p>{{ product.description | truncate: 100 }}</p>
+          </div>
+          <div class="carousel-cell-flavour">
+            <p>Flavour: {{ product.options[0].values[0].name }}</p>
+          </div>
+          <button class="carousel-cell-cta">
+            Add to cart
+          </button>
+        </div>
+      {% endfor %}
+    {% endif %}
     
-    <div class="carousel-cell">
+    {% comment %} <div class="carousel-cell">
       <div class="carousel-cell-image"></div>
       <div class="carousel-cell-title">
         <h3>Product title</h3>
@@ -36,151 +58,7 @@
       <button class="carousel-cell-cta">
         Add to cart
       </button>
-    </div>
-    
-    <div class="carousel-cell">
-      <div class="carousel-cell-image"></div>
-      <div class="carousel-cell-title">
-        <h3>Product title</h3>
-      </div>
-      <div class="carousel-cell-description">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-      </div>
-      <div class="carousel-cell-flavour">
-        <p>Flavour: Original Glazed</p>
-      </div>
-      <button class="carousel-cell-cta">
-        Add to cart
-      </button>
-    </div>
-    
-    <div class="carousel-cell">
-      <div class="carousel-cell-image"></div>
-      <div class="carousel-cell-title">
-        <h3>Product title</h3>
-      </div>
-      <div class="carousel-cell-description">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-      </div>
-      <div class="carousel-cell-flavour">
-        <p>Flavour: Original Glazed</p>
-      </div>
-      <button class="carousel-cell-cta">
-        Add to cart
-      </button>
-    </div>
-    
-    <div class="carousel-cell">
-      <div class="carousel-cell-image"></div>
-      <div class="carousel-cell-title">
-        <h3>Product title</h3>
-      </div>
-      <div class="carousel-cell-description">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-      </div>
-      <div class="carousel-cell-flavour">
-        <p>Flavour: Original Glazed</p>
-      </div>
-      <button class="carousel-cell-cta">
-        Add to cart
-      </button>
-    </div>
-    
-    <div class="carousel-cell">
-      <div class="carousel-cell-image"></div>
-      <div class="carousel-cell-title">
-        <h3>Product title</h3>
-      </div>
-      <div class="carousel-cell-description">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-      </div>
-      <div class="carousel-cell-flavour">
-        <p>Flavour: Original Glazed</p>
-      </div>
-      <button class="carousel-cell-cta">
-        Add to cart
-      </button>
-    </div>
-    
-    <div class="carousel-cell">
-      <div class="carousel-cell-image"></div>
-      <div class="carousel-cell-title">
-        <h3>Product title</h3>
-      </div>
-      <div class="carousel-cell-description">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-      </div>
-      <div class="carousel-cell-flavour">
-        <p>Flavour: Original Glazed</p>
-      </div>
-      <button class="carousel-cell-cta">
-        Add to cart
-      </button>
-    </div>
-    
-    <div class="carousel-cell">
-      <div class="carousel-cell-image"></div>
-      <div class="carousel-cell-title">
-        <h3>Product title</h3>
-      </div>
-      <div class="carousel-cell-description">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-      </div>
-      <div class="carousel-cell-flavour">
-        <p>Flavour: Original Glazed</p>
-      </div>
-      <button class="carousel-cell-cta">
-        Add to cart
-      </button>
-    </div>
-    
-    <div class="carousel-cell">
-      <div class="carousel-cell-image"></div>
-      <div class="carousel-cell-title">
-        <h3>Product title</h3>
-      </div>
-      <div class="carousel-cell-description">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-      </div>
-      <div class="carousel-cell-flavour">
-        <p>Flavour: Original Glazed</p>
-      </div>
-      <button class="carousel-cell-cta">
-        Add to cart
-      </button>
-    </div>
-    
-    <div class="carousel-cell">
-      <div class="carousel-cell-image"></div>
-      <div class="carousel-cell-title">
-        <h3>Product title</h3>
-      </div>
-      <div class="carousel-cell-description">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-      </div>
-      <div class="carousel-cell-flavour">
-        <p>Flavour: Original Glazed</p>
-      </div>
-      <button class="carousel-cell-cta">
-        Add to cart
-      </button>
-    </div>
-    
-    <div class="carousel-cell">
-      <div class="carousel-cell-image"></div>
-      <div class="carousel-cell-title">
-        <h3>Product title</h3>
-      </div>
-      <div class="carousel-cell-description">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-      </div>
-      <div class="carousel-cell-flavour">
-        <p>Flavour: Original Glazed</p>
-      </div>
-      <button class="carousel-cell-cta">
-        Add to cart
-      </button>
-    </div>
+    </div> {% endcomment %}
 
   </div>
 </div>
