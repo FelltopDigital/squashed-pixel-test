@@ -95,35 +95,7 @@
       if (response.ok) {
         const cartDrawer = document.querySelector('cart-drawer');
         if (cartDrawer) {
-          // Get the cart data
-          const cartResponse = await fetch('/cart.js');
-          const cartData = await cartResponse.json();
-          
-          // Update the cart drawer with new data
-          const parsedState = {
-            sections: {
-              'cart-drawer': {
-                'cart-drawer': {
-                  items: cartData.items,
-                  item_count: cartData.item_count,
-                  total_price: cartData.total_price
-                }
-              }
-            },
-            sections_order: ['cart-drawer']
-          };
-          
-          // Update the cart drawer contents
-          cartDrawer.renderContents(parsedState);
-          
-          // Open the cart drawer
           cartDrawer.open();
-          
-          // Trigger a cart update event
-          document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {
-            bubbles: true,
-            detail: { cart: cartData }
-          }));
         }
       }
     });
