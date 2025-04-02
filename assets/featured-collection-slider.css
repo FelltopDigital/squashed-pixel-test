@@ -27,12 +27,14 @@
   font-weight: 500;
   line-height: 100%;
   letter-spacing: 0%;
+  color: #000000;
   font-family: Roboto;
 }
 
 .feat-coll .feat-coll-header a {
   font-family: Roboto;
   font-weight: 400;
+  color: #434343;
   font-size: 18px;
   line-height: 100%;
   letter-spacing: 0%;
