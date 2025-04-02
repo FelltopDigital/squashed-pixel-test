@@ -1,5 +1,4 @@
 {{ 'flickity.css' | asset_url | stylesheet_tag }}
-{{ 'jquery.min.js' | asset_url | script_tag }}
 {{ 'flickity.min.js' | asset_url | script_tag }}
 {{ 'featured-collection-slider.css' | asset_url | stylesheet_tag }}
 
@@ -31,7 +30,7 @@
 <script>
   $('.feat-coll-carousel').flickity({
     cellAlign: 'left',
-    contain: true
+    contain: true,
   });
 </script>
 
