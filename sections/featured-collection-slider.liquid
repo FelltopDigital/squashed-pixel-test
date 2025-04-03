@@ -64,23 +64,25 @@
 
 <script>
   var elem = document.querySelector('.feat-coll-carousel');
-  var flkty = new Flickity(elem, {
-    contain: true,
-    wrapAround: true,
-    prevNextButtons: false,
-    groupCells: window.innerWidth > 640 ? 2 : 1,
-    cellAlign: window.innerWidth > 640 ? 'center' : 'left',
-  });
+  var autoplay = elem.classList.contains('autoplay-yes') ? 'yes' : 'no';
 
-  window.addEventListener('resize', function() {
-    flkty.destroy();
-    flkty = new Flickity(elem, {
+  function initFlickity() {
+    var flkty = new Flickity(elem, {
       contain: true,
       wrapAround: true,
       prevNextButtons: false,
       groupCells: window.innerWidth > 640 ? 2 : 1,
       cellAlign: window.innerWidth > 640 ? 'center' : 'left',
+      autoPlay: autoplay === 'yes' ? 1000 : false,
     });
+    return flkty;
+  }
+
+  var flkty = initFlickity();
+
+  window.addEventListener('resize', function() {
+    flkty.destroy();
+    flkty = initFlickity();
   });
 </script>
 
