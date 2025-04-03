@@ -11,34 +11,10 @@
   "sections": {
     "featured_collection_slider_9MW8VV": {
       "type": "featured-collection-slider",
-      "blocks": {
-        "slide_FeXYcg": {
-          "type": "slide",
-          "settings": {
-            "text": ""
-          }
-        },
-        "slide_JqL9Vh": {
-          "type": "slide",
-          "settings": {
-            "text": ""
-          }
-        },
-        "slide_jDria8": {
-          "type": "slide",
-          "settings": {
-            "text": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_FeXYcg",
-        "slide_JqL9Vh",
-        "slide_jDria8"
-      ],
       "settings": {
         "title": "The Donut Range",
-        "chosen_collection": "donuts"
+        "chosen_collection": "donuts",
+        "autoplay": "no"
       }
     }
   },
