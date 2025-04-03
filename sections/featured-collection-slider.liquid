@@ -19,7 +19,7 @@
     </div>
   </div>
 
-  <div class="feat-coll-carousel">
+  <div class="feat-coll-carousel autoplay-{{ ss.autoplay }}">
 
     {% if ss.chosen_collection != blank %}
       {% for product in ss.chosen_collection.products %}
